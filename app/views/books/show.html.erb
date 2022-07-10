@@ -1,8 +1,17 @@
 <body>
 
+  <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being created:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
   <div class="flash-notifications">
   　<% flash.each do |key, value| %>
-   　<%= content_tag(:div, value, class: notice) %>
+   　<%= content_tag(:div,'Book was successfully created.', class: notice) %>
   　<% end %>
 　</div>
 
